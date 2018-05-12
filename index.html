@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+    <title>Plum Book Search</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.semanticui.min.css">
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.about-click').click(function() {
+            $('.ui.modal')
+                .modal('show')
+        });
+
+        $('#example').dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": '//hmpbritain.co.uk/ses-search/api.php',
+            "columns": [
+                { "name": "year", "searchable": false, "bVisible":true },
+                { "name": "location", "searchable": false, "bVisible":false },
+                { "name": "name", "searchable": true, "bVisible":true },
+                { "name": "title", "searchable": false, "bVisible":true },
+                { "name": "type", "searchable": false, "bVisible":false },
+                { "name": "pay_plan", "searchable": false, "bVisible":false },
+                { "name": "pay_level_grade", "searchable": false, "bVisible":false },
+                { "name": "tenure", "searchable": false, "bVisible":false },
+                { "name": "expires", "searchable": false, "bVisible":false },
+                { "name": "agency", "searchable": false, "bVisible":true },
+                { "name": "big_office", "searchable": false, "bVisible":true },
+                { "name": "little_office", "searchable": false, "bVisible":true },
+
+            ]
+        });
+
+    });
+    </script>
+    <style type="text/css">
+    .masthead h1.ui.header {
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+    .toppad {
+        padding-top: 2em;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="ui inverted masthead center aligned segment">
+        <div class="ui inverted secondary pointing tiny menu container">
+            <div class="right menu">
+                <a class="item about-click">About</a>
+            </div>
+        </div>
+        <div class="ui text container">
+            <h1 class="ui header inverted">Plum Book Search
+            <div class="sub header">Search the 1996, 2004, 2008, 2012 &amp; 2016 Plum Book</div>
+            </h1>
+        </div>
+    </div>
+    <div class="ui container toppad">
+        <table id="example" class="ui small very compact striped table" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="one wide">Year</th>
+                    <th>Location</th>
+                    <th class="two wide">Name</th>
+                    <th class="three wide">Title</th>
+                    <th>Type</th>
+                    <th>Pay Plan</th>
+                    <th>Level</th>
+                    <th>Year</th>
+                    <th>Tenure</th>
+                    <th class="three wide">Agency</th>
+                    <th class="three wide">Office</th>
+                    <th>Sub Office</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- 
+
+MODAL CONTENT
+
+-->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="ui content">
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <h3>About SES</h3>
+                    <p>SES positions are published every four years by the GPO in a 'Plum Book'.</p>
+                    <p>Each contains many (but not nearly all) SES members employed by Federal Government.</p>
+                    <p><b>It does not</b> contain the many SES members employed by States, private corporations or NGOs.</p>
+                    <p>SES is a cadre of bureaucrats beholden to entities unknown.</p>
+                </div>
+                <div class="eight wide column">
+                    <h3>About this Site</h3>
+                    <p>This site searches the 1996, 2004, 2008, 2012  &amp; 2016 Plum Books published by the U.S. Government Publishing Office.</p>
+                    <p>Plum Books are not published in a machine-readable format; the other Plum Books will be added if they are converted.</p>
+            <p>All Plumb Books were scraped from HTML or Text files; Plum Books from the GPO should remain your canonical source. </p>
+            <p>The dataset used can be exported from <a href="https://fusiontables.google.com/data?docid=1512UclVxllMSeDvejZAsGTNMhwn1q3dVwvIEcKDv">Google Fusion Tables</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical footer segment topadd">
+        <div class="ui  section divider"></div>
+        <div class="ui center aligned container">
+            <p>Whatever you have said in the dark will be heard in the light.</p>
+        </div>
+    </div>
+</body>
+
+</html>
